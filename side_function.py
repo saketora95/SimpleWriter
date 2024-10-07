@@ -104,3 +104,11 @@ def cleanup_old_backups():
     while len(backup_files) > 10:
         oldest_file = os.path.join('backup', backup_files.pop(0))
         os.remove(oldest_file)
+
+def update_text_cnt(root: tk.Tk, text_widget: tk.Text, label_widget: tk.Label):
+    content = text_widget.get('1.0', tk.END)
+
+    if content != '\n':
+        label_widget.config(text=len(content))
+
+    root.after(5000, lambda: update_text_cnt(root, text_widget, label_widget))

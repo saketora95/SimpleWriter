@@ -57,7 +57,11 @@ side_function.bind_button(
 edit_setting_button = tk.Button(root, text='編輯設定', command=lambda: side_function.set_config(root, writer_text_widget, config))
 edit_setting_button.place(relx=1.0, rely=0.0, anchor='ne')
 
+text_cnt_label = tk.Label(root, text='0', font=root_font)
+text_cnt_label.place(relx=0.0, rely=0.0, anchor='nw')
+
 side_function.init_back_up()
 side_function.back_up(root, writer_text_widget)
+side_function.update_text_cnt(root, writer_text_widget, text_cnt_label)
 
 root.mainloop()
