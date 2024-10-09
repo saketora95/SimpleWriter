@@ -46,7 +46,11 @@ root.geometry('{0}x{1}+{2}+{3}'.format(
 root_font = font.Font(family=config['font'], size=config['font_size'])
 
 writer_text_widget = tk.Text(root, font=root_font, undo=True)
-writer_text_widget.place(x=0, y=30, width=800, height=570)
+writer_text_widget.place(x=0, y=30, width=785, height=570)
+
+scrollbar = tk.Scrollbar(root, command=writer_text_widget.yview)
+writer_text_widget.config(yscrollcommand=scrollbar.set)
+scrollbar.place(x=785, y=30, width=15, height=570)
 
 side_function.bind_button(
     root,
